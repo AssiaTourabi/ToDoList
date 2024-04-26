@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Update Task</title>
+<style>
+    /* Custom CSS for styled title */
+    .styled-title {
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #007bff; /* Blue color, same as previous page */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        animation: fadeInUp 0.5s ease-in-out; /* Apply fadeInUp animation */
+    }
+
+    /* Custom CSS for form */
+    .content {
+        max-width: 500px;
+        margin: 0 auto;
+        padding-top: 50px; /* Add padding to align with styled title */
+    }
+
+    .form {
+        background-color: #f8f9fa; /* Light gray background */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-control {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .btn-success {
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h3 class="styled-title" id="task">Update Task</h3>
+
+    <div class="form">
+        <form action="/update/{{ task.id }}" method="post">
+            <input type="text" name="content" id="content" value="{{ task.content }}" class="form-control">
+            <br>
+            <input type="submit" value="Update" class="btn btn-success">
+        </form>
+    </div>
+</div>
+{% endblock %}
